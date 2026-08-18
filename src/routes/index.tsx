@@ -11,7 +11,6 @@ import { ProjectView } from '@/components/ProjectView';
 import { SettingsView } from '@/components/SettingsView';
 import { StatsView } from '@/components/StatsView';
 import { SyncView } from '@/components/SyncView';
-import { FirstSetup } from '@/components/FirstSetup';
 import { LayoutDashboard, Edit3, FolderOpen, Settings, BarChart3, Cloud } from 'lucide-react';
 
 export const Route = createFileRoute('/')({
@@ -47,7 +46,7 @@ function Index() {
 
   // 移动端底部导航
   const MobileNav = () => (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-2 py-2 z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 z-50">
       <div className="flex justify-around items-center">
         <button
           onClick={() => setActiveTab('dashboard')}
@@ -55,7 +54,7 @@ function Index() {
             activeTab === 'dashboard' ? 'text-blue-600' : 'text-gray-500'
           }`}
         >
-          <LayoutDashboard size={18} />
+          <LayoutDashboard size={20} />
           <span className="text-xs">今日</span>
         </button>
         <button
@@ -64,7 +63,7 @@ function Index() {
             activeTab === 'record' ? 'text-blue-600' : 'text-gray-500'
           }`}
         >
-          <Edit3 size={18} />
+          <Edit3 size={20} />
           <span className="text-xs">记录</span>
         </button>
         <button
@@ -73,26 +72,8 @@ function Index() {
             activeTab === 'stats' ? 'text-blue-600' : 'text-gray-500'
           }`}
         >
-          <BarChart3 size={18} />
+          <BarChart3 size={20} />
           <span className="text-xs">统计</span>
-        </button>
-        <button
-          onClick={() => setActiveTab('sync')}
-          className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-            activeTab === 'sync' ? 'text-blue-600' : 'text-gray-500'
-          }`}
-        >
-          <Cloud size={18} />
-          <span className="text-xs">同步</span>
-        </button>
-        <button
-          onClick={() => setActiveTab('projects')}
-          className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-            activeTab === 'projects' ? 'text-blue-600' : 'text-gray-500'
-          }`}
-        >
-          <FolderOpen size={18} />
-          <span className="text-xs">项目</span>
         </button>
         <button
           onClick={() => setActiveTab('settings')}
@@ -100,7 +81,7 @@ function Index() {
             activeTab === 'settings' ? 'text-blue-600' : 'text-gray-500'
           }`}
         >
-          <Settings size={18} />
+          <Settings size={20} />
           <span className="text-xs">设置</span>
         </button>
       </div>
@@ -148,28 +129,6 @@ function Index() {
             <BarChart3 size={20} />
             <span>统计回顾</span>
           </button>
-          <button
-            onClick={() => setActiveTab('sync')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === 'sync'
-                ? 'bg-blue-50 text-blue-600 font-medium'
-                : 'text-gray-600 hover:bg-gray-50'
-            }`}
-          >
-            <Cloud size={20} />
-            <span>云端同步</span>
-          </button>
-          <button
-            onClick={() => setActiveTab('projects')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === 'projects'
-                ? 'bg-blue-50 text-blue-600 font-medium'
-                : 'text-gray-600 hover:bg-gray-50'
-            }`}
-          >
-            <FolderOpen size={20} />
-            <span>项目管理</span>
-          </button>
         <button
           onClick={() => setActiveTab('settings')}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
@@ -187,7 +146,6 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <FirstSetup />
       {!isMobile && <DesktopSidebar />}
       <main
         className={`${isMobile ? 'pb-20' : 'ml-64'} min-h-screen`}
@@ -226,16 +184,11 @@ function Index() {
               }}
             />
           )}
-          {activeTab === 'sync' && (
-            <SyncView
-              data={data}
-              onDataChange={setData}
-            />
-          )}
           {activeTab === 'settings' && (
             <SettingsView
               data={data}
               onDataChange={setData}
+              onNavigate={(tab) => setActiveTab(tab)}
             />
           )}
         </div>
