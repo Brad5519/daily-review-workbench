@@ -16,7 +16,7 @@ interface ProjectViewProps {
   isSubView?: boolean;
 }
 
-const CATEGORIES: ProjectCategory[] = ['运动健康', '饮食管理', '学习��长', '兴趣技能', '体征参数', '自定义'];
+const CATEGORIES: ProjectCategory[] = ['运动健康', '饮食管理', '学习成长', '兴趣技能', '体征参数', '自定义'];
 const MEASURE_TYPES: MeasureType[] = ['是否型', '数值型', '文本型'];
 const PROJECT_TYPES: ProjectType[] = ['目标型', '记录型'];
 const TARGET_TYPES: TargetType[] = ['下限型', '上限型', '区间型', '无目标'];
