@@ -1,10 +1,9 @@
 import { useMemo, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { ChevronDown, ChevronUp, CheckCircle2, Circle, AlertCircle, Coins, Calendar, Flame } from 'lucide-react';
+import { ChevronDown, ChevronUp, CheckCircle2, Circle, AlertCircle, Coins, Calendar, Flame, Sparkles } from 'lucide-react';
 import type { AppData, Project, ProjectCategory, DailyRecord } from '@/types';
-import { CATEGORY_COLORS } from '@/types';
+import { CATEGORY_COLORS, DAILY_QUOTES } from '@/types';
 import { getProjectStatus, checkConsecutiveMissing, checkConsecutiveFailed, groupProjectsByCategory } from '@/lib/utils-project';
 import { getDateData } from '@/lib/storage';
 import { calculateStreak, calculateMonthCompletedDays } from '@/lib/stats-utils';
