@@ -13,6 +13,7 @@ import { generateId } from '@/lib/utils-project';
 interface ProjectViewProps {
   projects: Project[];
   onProjectsChange: (projects: Project[]) => void;
+  isSubView?: boolean;
 }
 
 const CATEGORIES: ProjectCategory[] = ['运动健康', '饮食管理', '学习成长', '兴趣技能', '体征参数', '自定义'];
